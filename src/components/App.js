@@ -1,15 +1,9 @@
 import React from 'react';
+import { populateMonth } from '../util/months';
 
 class App extends React.Component {
 	render() {
-		const month = [];
-		for (let i = 1; i < 30; i += 7) {
-			const week = [];
-		for (let j = i; j < i + 7 && j < 31; j++) {
-			week.push(j);
-		}
-		month.push(week);
-	}
+		const month = populateMonth(30, 'monday');
 
 		return (
 			<div>
