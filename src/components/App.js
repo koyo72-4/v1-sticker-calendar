@@ -1,9 +1,10 @@
 import React from 'react';
-import { populateMonth } from '../util/months';
+import { Month } from './Month';
+import { populateYear } from '../util/months';
 
 class App extends React.Component {
 	render() {
-		const month = populateMonth(30, 'monday');
+		const year = populateYear(2020, 'wednesday');
 
 		return (
 			<div>
@@ -17,27 +18,7 @@ class App extends React.Component {
 				</select>
 				<br/>
 				<br/>
-				<table style={{tableLayout: 'fixed'}}>
-					<caption>April 2019</caption>
-					<thead>
-						<tr>
-							<th>Sunday</th>
-							<th>Monday</th>
-							<th>Tuesday</th>
-							<th>Wednesday</th>
-							<th>Thursday</th>
-							<th>Friday</th>
-							<th>Saturday</th>
-						</tr>
-					</thead>
-					<tbody>
-						{month.map(week => {
-							return (
-								<tr>{week.map(day => <td>{day}</td>)}</tr>
-							);
-						})}
-					</tbody>
-				</table>
+				{year.map((month, index) => <Month month={month} index={index + 1}/>)}
 			</div>
 		);
 	}
