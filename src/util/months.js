@@ -1,5 +1,4 @@
 const DAYS_IN_A_WEEK = 7;
-const EXAMPLE_LEAP_YEAR = 2020;
 
 export const getOffset = (dayOfTheWeek) => {
     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
@@ -31,8 +30,10 @@ export const populateMonth = (numberOfDays, startingDay) => {
 }
 
 export const isLeapYear = (year) => {
-    const difference = year - EXAMPLE_LEAP_YEAR;
-    return difference % 4 === 0;
+    if (year % 100 === 0) {
+        return year % 400 === 0;
+    }
+    return year % 4 === 0;
 }
 
 export const populateYear = (year, startingDay) => {

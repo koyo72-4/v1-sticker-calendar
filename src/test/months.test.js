@@ -41,19 +41,25 @@ describe('populateMonth', () => {
 
 describe('isLeapYear', () => {
     it('returns true if the given year is a leap year', () => {
-        const laterResult = isLeapYear(2036);
-        expect(laterResult).toBe(true);
+        const result1 = isLeapYear(2036);
+        expect(result1).toBe(true);
 
-        const earlierResult = isLeapYear(1852);
-        expect(earlierResult).toBe(true);
+        const result2 = isLeapYear(2000);
+        expect(result2).toBe(true);
+
+        const result3 = isLeapYear(1852);
+        expect(result3).toBe(true);
     });
 
     it('returns false if the given year is not a leap year', () => {
-        const laterResult = isLeapYear(2022);
-        expect(laterResult).toBe(false);
+        const result1 = isLeapYear(2100);
+        expect(result1).toBe(false);
 
-        const earlierResult = isLeapYear(2014);
-        expect(earlierResult).toBe(false);
+        const result2 = isLeapYear(2022);
+        expect(result2).toBe(false);
+
+        const result3 = isLeapYear(2014);
+        expect(result3).toBe(false);
     });
 });
 
