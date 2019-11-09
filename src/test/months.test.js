@@ -1,4 +1,4 @@
-import { getOffset, populateMonth, isLeapYear } from '../util/months';
+import { getOffset, populateMonth, isLeapYear, populateYear } from '../util/months';
 
 describe('getOffset', () => {
     it('returns how many days are between Sunday (the first day of the week) and the given day', () => {
@@ -54,5 +54,21 @@ describe('isLeapYear', () => {
 
         const earlierResult = isLeapYear(2014);
         expect(earlierResult).toBe(false);
+    });
+});
+
+describe('populateYear', () => {
+    it('returns a year of 12 months, a month being an array of arrays of days that line up with the correct day of the week (where Sunday is the first day of the week), given the year number and the day of the week on which the year starts', () => {
+        const twentyNineteenResult = populateYear(2019, 'tuesday');
+        expect(twentyNineteenResult).toMatchSnapshot();
+
+        const twentyTwentyResult = populateYear(2020, 'wednesday');
+        expect(twentyTwentyResult).toMatchSnapshot();
+
+        const twentyTwentyOneResult = populateYear(2021, 'friday');
+        expect(twentyTwentyOneResult).toMatchSnapshot();
+
+        const twentyTwentyFourResult = populateYear(2024, 'monday');
+        expect(twentyTwentyFourResult).toMatchSnapshot();
     });
 });
