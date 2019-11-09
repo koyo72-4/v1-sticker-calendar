@@ -1,4 +1,4 @@
-import { getOffset, populateMonth } from '../util/months';
+import { getOffset, populateMonth, isLeapYear } from '../util/months';
 
 describe('getOffset', () => {
     it('returns how many days are between Sunday (the first day of the week) and the given day', () => {
@@ -26,5 +26,23 @@ describe('populateMonth', () => {
             [22, 23, 24, 25, 26, 27, 28],
             [29, 30]
         ]);
+    });
+});
+
+describe('isLeapYear', () => {
+    it('returns true if the given year is a leap year', () => {
+        const laterResult = isLeapYear(2036);
+        expect(laterResult).toBe(true);
+
+        const earlierResult = isLeapYear(1852);
+        expect(earlierResult).toBe(true);
+    });
+
+    it('returns false if the given year is not a leap year', () => {
+        const laterResult = isLeapYear(2022);
+        expect(laterResult).toBe(false);
+
+        const earlierResult = isLeapYear(2014);
+        expect(earlierResult).toBe(false);
     });
 });
