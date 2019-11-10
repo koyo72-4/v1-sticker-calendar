@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`populateYear returns a year of 12 months, a month being an array of arrays of days that line up with the correct day of the week (where Sunday is the first day of the week), given the year number and the day of the week on which the year starts 1`] = `
+exports[`populateYear given a year, returns an array of months, a month being an array of arrays of days that line up with the correct day of the week (where Sunday is the first day of the week) 1`] = `
 Array [
   Array [
     Array [
@@ -552,7 +552,7 @@ Array [
 ]
 `;
 
-exports[`populateYear returns a year of 12 months, a month being an array of arrays of days that line up with the correct day of the week (where Sunday is the first day of the week), given the year number and the day of the week on which the year starts 2`] = `
+exports[`populateYear given a year, returns an array of months, a month being an array of arrays of days that line up with the correct day of the week (where Sunday is the first day of the week) 2`] = `
 Array [
   Array [
     Array [
@@ -1106,7 +1106,7 @@ Array [
 ]
 `;
 
-exports[`populateYear returns a year of 12 months, a month being an array of arrays of days that line up with the correct day of the week (where Sunday is the first day of the week), given the year number and the day of the week on which the year starts 3`] = `
+exports[`populateYear given a year, returns an array of months, a month being an array of arrays of days that line up with the correct day of the week (where Sunday is the first day of the week) 3`] = `
 Array [
   Array [
     Array [
@@ -1661,7 +1661,7 @@ Array [
 ]
 `;
 
-exports[`populateYear returns a year of 12 months, a month being an array of arrays of days that line up with the correct day of the week (where Sunday is the first day of the week), given the year number and the day of the week on which the year starts 4`] = `
+exports[`populateYear given a year, returns an array of months, a month being an array of arrays of days that line up with the correct day of the week (where Sunday is the first day of the week) 4`] = `
 Array [
   Array [
     Array [

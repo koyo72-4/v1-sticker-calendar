@@ -69,7 +69,7 @@ export const getStartingDay = (year) => {
     return days[yearIndex];
 }
 
-export const populateYear = (year, startingDay) => {
+export const populateYear = (year) => {
     const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
     if (isLeapYear(year)) {
@@ -78,6 +78,7 @@ export const populateYear = (year, startingDay) => {
 
     return monthLengths.reduce((newMonthsArray, month, index) => {
         if (index === 0) {
+            const startingDay = getStartingDay(year);
             newMonthsArray.push(populateMonth(month, startingDay));
             return newMonthsArray;
         } else {

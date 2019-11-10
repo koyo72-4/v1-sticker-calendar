@@ -69,17 +69,17 @@ describe('isLeapYear', () => {
 });
 
 describe('populateYear', () => {
-    it('returns a year of 12 months, a month being an array of arrays of days that line up with the correct day of the week (where Sunday is the first day of the week), given the year number and the day of the week on which the year starts', () => {
-        const twentyNineteenResult = populateYear(2019, 'tuesday');
+    it('given a year, returns an array of months, a month being an array of arrays of days that line up with the correct day of the week (where Sunday is the first day of the week)', () => {
+        const twentyNineteenResult = populateYear(2019);
         expect(twentyNineteenResult).toMatchSnapshot();
 
-        const twentyTwentyResult = populateYear(2020, 'wednesday');
+        const twentyTwentyResult = populateYear(2020);
         expect(twentyTwentyResult).toMatchSnapshot();
 
-        const twentyTwentyOneResult = populateYear(2021, 'friday');
+        const twentyTwentyOneResult = populateYear(2021);
         expect(twentyTwentyOneResult).toMatchSnapshot();
 
-        const twentyTwentyFourResult = populateYear(2024, 'monday');
+        const twentyTwentyFourResult = populateYear(2024);
         expect(twentyTwentyFourResult).toMatchSnapshot();
     });
 });
