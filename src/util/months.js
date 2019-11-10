@@ -1,4 +1,5 @@
 const DAYS_IN_A_WEEK = 7;
+const EXAMPLE_STARTING_DAY = [2000, 'saturday'];
 
 export const getOffset = (dayOfTheWeek) => {
     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
@@ -34,6 +35,38 @@ export const isLeapYear = (year) => {
         return year % 400 === 0;
     }
     return year % 4 === 0;
+}
+
+export const getStartingDay = (year) => {
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const [exampleYear, exampleStartingDay] = EXAMPLE_STARTING_DAY;
+    const exampleIndex = days.indexOf(exampleStartingDay);
+    const difference = year - exampleYear;
+    
+    let numberOfLeapYears = Math.ceil(difference / 4);
+    if (difference > 100) {
+        const hundreds = difference % 100 === 0
+            ? Math.floor(difference / 100) - 1
+            : Math.floor(difference / 100);
+        const fourHundreds = Math.floor(hundreds / 4);
+        numberOfLeapYears -= (hundreds - fourHundreds);
+    } else if (difference <= -100) {
+        const positiveDifference = Math.abs(difference);
+        const hundreds = Math.floor(positiveDifference / 100);
+        const fourHundreds = Math.floor(hundreds / 4);
+        numberOfLeapYears += (hundreds - fourHundreds);
+    }
+
+    const offset = (difference + numberOfLeapYears) % 7;
+
+    let yearIndex;
+    if ((offset < 0) && Math.abs(offset) > exampleIndex) {
+        yearIndex = 7 + (exampleIndex + offset);
+    } else {
+        yearIndex = (exampleIndex + offset) % 7;
+    }
+
+    return days[yearIndex];
 }
 
 export const populateYear = (year, startingDay) => {

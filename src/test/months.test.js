@@ -1,4 +1,9 @@
-import { getOffset, populateMonth, isLeapYear, populateYear } from '../util/months';
+import { getOffset,
+    populateMonth,
+    isLeapYear,
+    populateYear,
+    getStartingDay
+} from '../util/months';
 
 describe('getOffset', () => {
     it('returns how many days are between Sunday (the first day of the week) and the given day', () => {
@@ -76,5 +81,63 @@ describe('populateYear', () => {
 
         const twentyTwentyFourResult = populateYear(2024, 'monday');
         expect(twentyTwentyFourResult).toMatchSnapshot();
+    });
+});
+
+describe('getStartingDay', () => {
+    it('returns the day of the week on which the given year starts', () => {
+        const result1 = getStartingDay(1753);
+        expect(result1).toBe('monday');
+
+        const result2 = getStartingDay(1799);
+        expect(result2).toBe('tuesday');
+
+        const result3 = getStartingDay(1800);
+        expect(result3).toBe('wednesday');
+
+        const result4 = getStartingDay(1801);
+        expect(result4).toBe('thursday');
+
+        const result5 = getStartingDay(1920);
+        expect(result5).toBe('thursday');
+
+        const result6 = getStartingDay(1999);
+        expect(result6).toBe('friday');
+
+        const result7 = getStartingDay(2000);
+        expect(result7).toBe('saturday');
+
+        const result8 = getStartingDay(2001);
+        expect(result8).toBe('monday');
+
+        const result9 = getStartingDay(2012);
+        expect(result9).toBe('sunday');
+
+        const result10 = getStartingDay(2019);
+        expect(result10).toBe('tuesday');
+
+        const result11 = getStartingDay(2020);
+        expect(result11).toBe('wednesday');
+
+        const result12 = getStartingDay(2021);
+        expect(result12).toBe('friday');
+
+        const result13 = getStartingDay(2120);
+        expect(result13).toBe('monday');
+
+        const result14 = getStartingDay(2299);
+        expect(result14).toBe('sunday');
+
+        const result15 = getStartingDay(2400);
+        expect(result15).toBe('saturday');
+
+        const result16 = getStartingDay(2401);
+        expect(result16).toBe('monday');
+
+        const result17 = getStartingDay(2600);
+        expect(result17).toBe('wednesday');
+
+        const result18 = getStartingDay(3959);
+        expect(result18).toBe('thursday');
     });
 });
