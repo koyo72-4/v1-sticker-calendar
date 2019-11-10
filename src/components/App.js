@@ -4,7 +4,7 @@ import { populateYear } from '../util/months';
 
 class App extends React.Component {
 	render() {
-		const year = populateYear(2020, 'wednesday');
+		const year = populateYear(2020);
 
 		return (
 			<div>
