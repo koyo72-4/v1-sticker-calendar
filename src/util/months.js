@@ -1,10 +1,8 @@
+const DAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 const DAYS_IN_A_WEEK = 7;
 const EXAMPLE_STARTING_DAY = [2000, 'saturday'];
 
-export const getOffset = (dayOfTheWeek) => {
-    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-    return days.indexOf(dayOfTheWeek);
-}
+export const getOffset = dayOfTheWeek => DAYS.indexOf(dayOfTheWeek);
 
 export const populateMonth = (numberOfDays, startingDay) => {
     const offset = getOffset(startingDay);
@@ -38,9 +36,8 @@ export const isLeapYear = (year) => {
 }
 
 export const getStartingDay = (year) => {
-    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     const [exampleYear, exampleStartingDay] = EXAMPLE_STARTING_DAY;
-    const exampleIndex = days.indexOf(exampleStartingDay);
+    const exampleIndex = DAYS.indexOf(exampleStartingDay);
     const difference = year - exampleYear;
     
     let numberOfLeapYears = Math.ceil(difference / 4);
@@ -66,7 +63,7 @@ export const getStartingDay = (year) => {
         yearIndex = (exampleIndex + offset) % 7;
     }
 
-    return days[yearIndex];
+    return DAYS[yearIndex];
 }
 
 export const populateYear = (year) => {
@@ -84,8 +81,7 @@ export const populateYear = (year) => {
         } else {
             const previousMonth = newMonthsArray[index - 1];
             const lengthOfLastWeekOfPreviousMonth = previousMonth[previousMonth.length - 1].length;
-            const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-            const firstDayOfThisMonth = days[lengthOfLastWeekOfPreviousMonth % days.length];
+            const firstDayOfThisMonth = DAYS[lengthOfLastWeekOfPreviousMonth % DAYS.length];
             newMonthsArray.push(populateMonth(month, firstDayOfThisMonth));
             return newMonthsArray;
         }
