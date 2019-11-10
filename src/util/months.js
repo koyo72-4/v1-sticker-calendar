@@ -1,6 +1,6 @@
 const DAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 const DAYS_IN_A_WEEK = 7;
-const EXAMPLE_STARTING_DAY = [2000, 'saturday'];
+const YEAR_TWO_THOUSAND = [2000, 'saturday'];
 
 export const getOffset = dayOfTheWeek => DAYS.indexOf(dayOfTheWeek);
 
@@ -36,7 +36,7 @@ export const isLeapYear = (year) => {
 }
 
 export const getStartingDay = (year) => {
-    const [exampleYear, exampleStartingDay] = EXAMPLE_STARTING_DAY;
+    const [exampleYear, exampleStartingDay] = YEAR_TWO_THOUSAND;
     const exampleIndex = DAYS.indexOf(exampleStartingDay);
     const difference = year - exampleYear;
     
