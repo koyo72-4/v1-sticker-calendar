@@ -1,0 +1,15 @@
+table {
+    border: 3px solid red;
+    margin-top: 80px;
+    transition: border .5s 0.05s ease-in;
+}
+
+table:hover {
+    border: 3px solid pink;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 5px;
+}

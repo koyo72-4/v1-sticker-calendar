@@ -12,7 +12,7 @@ export const populateMonth = (numberOfDays, startingDay) => {
         const week = [];
         if (i === 1 && startingDay !== 'sunday') {
             for (let x = 0; x < offset; x++) {
-                week.push('x');
+                week.push('');
             }
             for (let j = i; (j < i + (DAYS_IN_A_WEEK - offset)) && (j < numberOfDays + 1); j++) {
                 week.push(j);

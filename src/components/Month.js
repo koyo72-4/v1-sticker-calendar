@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/Month.css';
 
 export const Month = (props) => {
     return (
