@@ -31,5 +31,7 @@ table {
 th,
 td {
     border: 1px solid black;
+    min-width: 75px;
+    height: 35px;
     padding: 5px;
 }

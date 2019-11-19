@@ -1,4 +1,5 @@
 import React from 'react';
+import Day from './Day';
 import '../css/Month.css';
 
 export const Month = React.forwardRef((props, ref) => (
@@ -24,9 +25,10 @@ export const Month = React.forwardRef((props, ref) => (
                 return (
                     <tr key={`tr ${month} ${index} ${week}`}>
                         {week.map((day, index, week) => (
-                            <td key={`td ${week} ${index} ${day}`}>
-                                {day}
-                            </td>
+                            <Day
+                                key={`td ${week} ${index} ${day}`}
+                                day={day}
+                            />
                         ))}
                     </tr>
                 );
